@@ -861,6 +861,8 @@
 
             @include flex-h-c-v-c( false );
 
+            float: none;
+
             height: 3rem;
 
         }
@@ -932,9 +934,12 @@
 
                     min-width: 2rem;
                     height: 2rem;
+                    margin: 0 0 0 0;
                     padding: 0 0.5rem 0 0.5rem;
 
                     @include color( $app05, 0.265 );
+
+                    color: transparentize( $app05, 0.265 ) !important;
 
                     text-decoration: none;
 
@@ -945,6 +950,8 @@
 
                         @include color( $campaign, 0.000 );
 
+                        color: $campaign !important;
+
                         @include fill( $g135, 0.000 );
 
                     }
@@ -954,12 +961,25 @@
 
                         @include color( $app05, 0.625 );
 
+                        color: transparentize( $app05, 0.625 ) !important;
+
+                        // hover state
+                        &:hover {
+
+                            color: transparentize( $app05, 0.625 ) !important;
+
+                            @include fill( transparent, 1.000 );
+
+                        }
+
                     }
 
                     // current state
                     &.current {
 
                         @include color( white, 0.000 );
+
+                        color: white !important;
 
                         @include fill( $g140, 0.000 );
 

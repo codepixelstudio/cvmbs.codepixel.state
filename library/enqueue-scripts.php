@@ -46,6 +46,9 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		wp_dequeue_style( 'wp-block-library' );
 		wp_dequeue_style( 'wp-block-library-theme' );
 
+		// dequeue TablePress CSS
+		// wp_dequeue_style( 'tablepress-default' );
+
 		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
 		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', false );
 
