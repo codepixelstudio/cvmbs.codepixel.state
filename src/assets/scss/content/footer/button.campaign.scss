@@ -5,9 +5,11 @@
 
         transition: all 480ms $outex 0ms;
 
-        display: inline-block;
+        // display: inline-block;
+        @include flex-h-c-v-c( false );
 
-        padding: 1.375em 1.375em;
+        min-height: 4rem;
+        padding: 0 1rem 0 1rem;
 
         @include fill( white, 0.965 );
 
