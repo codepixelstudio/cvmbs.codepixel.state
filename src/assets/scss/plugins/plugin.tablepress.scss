@@ -1,0 +1,83 @@
+// stylesheet :: TablePress styles
+
+    // settings
+    $tablepress : 1rem;
+
+    // styles
+    table {
+
+        // class hook
+        &.tablepress {
+
+            // head
+            thead {
+
+                // cells
+                th {
+
+                    border: none;
+
+                    font-weight: normal;
+
+                    @include fill( $g140 );
+
+                }
+
+            }
+
+            // body
+            tbody {
+
+                // hover
+                &.row-hover {
+
+                    // rows
+                    tr {
+
+                        // hover state
+                        &:hover {
+
+                            // cells
+                            td {
+
+                                @include color( $g135 );
+
+                                @include fill( $campaign );
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                // rows
+                tr {
+
+                    // class hook
+                    &.even {
+
+                        // cells
+                        td {
+
+                            @include fill( transparent );
+
+                        }
+
+                    }
+
+                }
+
+                // cells
+                td {
+
+                    border: none;
+
+                }
+
+            }
+
+        }
+
+    }
