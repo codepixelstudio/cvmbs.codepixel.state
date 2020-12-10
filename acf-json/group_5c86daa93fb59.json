@@ -202,7 +202,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -228,7 +228,7 @@
                             "default_value": "",
                             "tabs": "all",
                             "toolbar": "full",
-                            "media_upload": 0,
+                            "media_upload": 1,
                             "delay": 0
                         }
                     ],
@@ -381,9 +381,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [
-                                        "h2"
-                                    ],
+                                    "default_value": "h2",
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -660,7 +658,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 1,
@@ -866,7 +864,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -1018,9 +1016,7 @@
                                 "h5": "H5",
                                 "h6": "H6"
                             },
-                            "default_value": [
-                                "h2"
-                            ],
+                            "default_value": "h2",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -1119,7 +1115,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -1223,9 +1219,7 @@
                                 "h5": "H5",
                                 "h6": "H6"
                             },
-                            "default_value": [
-                                "h2"
-                            ],
+                            "default_value": "h2",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -1348,7 +1342,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -1468,7 +1462,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -1557,9 +1551,7 @@
                                 "h5": "H5",
                                 "h6": "H6"
                             },
-                            "default_value": [
-                                "h2"
-                            ],
+                            "default_value": "h2",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -1596,9 +1588,7 @@
                                 "notice": "Notice",
                                 "warning": "Warning"
                             },
-                            "default_value": [
-                                "info"
-                            ],
+                            "default_value": "info",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -2340,7 +2330,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -2500,7 +2490,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -2731,7 +2721,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -2893,7 +2883,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -2918,13 +2908,10 @@
                             },
                             "choices": {
                                 "": "None",
-                                "7": "Academic Departments",
-                                "9": "College Resources",
-                                "8": "Quick Links",
-                                "58": "Research Topics Menu",
-                                "6": "Site Menu"
+                                "2": "site navigation",
+                                "72": "VTH Directory Menu"
                             },
-                            "default_value": [],
+                            "default_value": false,
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -3023,7 +3010,7 @@
                                         "h5": "H5",
                                         "h6": "H6"
                                     },
-                                    "default_value": [],
+                                    "default_value": false,
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -3151,14 +3138,9 @@
         ],
         [
             {
-                "param": "post_format",
+                "param": "post_template",
                 "operator": "==",
-                "value": "standard"
-            },
-            {
-                "param": "post_category",
-                "operator": "==",
-                "value": "category:news"
+                "value": "template-service-child.php"
             }
         ]
     ],
@@ -3170,7 +3152,7 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1594072033
+    "modified": 1607543537
 }
