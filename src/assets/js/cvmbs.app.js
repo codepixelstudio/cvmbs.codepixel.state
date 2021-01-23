@@ -163,48 +163,73 @@
         var homepage_alert = $('#homepage_alert');
         var dismiss_alert  = $('#dismiss_alert');
 
-        if ( document.cookie.split( ';' ).some( function( item ) {
+        // get alert status
+        var alert_status = $('body').attr( 'data-alert-status' );
 
-            return item.trim().indexOf( 'alert=dismissed' ) == 0
+        // test alert status
+        if ( alert_status !== 'inactive' ) {
 
-        } ) ) {
+            // test cookie string
+            if ( document.cookie.split( ';' ).some( function( item ) {
 
-            homepage_alert.remove();
+                return item.trim().indexOf( 'alert=dismissed' ) == 0
 
-        } else {
+            } ) ) {
 
-            homepage_alert.show();
+                // set cookie evidence
+                $('body').attr( 'data-alert-status', 'dismissed' );
+
+                // remove alert from DOM
+                homepage_alert.remove();
+
+            } else {
+
+                // setup alert
+                homepage_alert.addClass( 'activated' );
+
+                // setup header
+                site.ui.header.addClass( 'has_alert' );
+
+            }
 
         }
 
         // set action
         dismiss_alert.on( 'click', function ( e ) {
 
-            document.cookie = 'alert=dismissed';
+            // set cookie evidence
+            $('body').attr( 'data-alert-status', 'dismissed' );
 
-            homepage_alert.remove();
+            // setup alert
+            homepage_alert.removeClass( 'activated' );
 
-        });
-
-        // dismiss action
-        site.cookie.delete.on( 'click', function ( e ) {
+            // reset header
+            site.ui.header.removeClass( 'has_alert' );
 
             // set cookie
-            document.cookie = 'alert=pending';
+            document.cookie = 'alert=dismissed';
+
+            // delay and remove alert
+            setTimeout( function() {
+
+                // remove alert from DOM
+                homepage_alert.remove();
+
+            }, 1000 );
 
         });
 
         // debug action
-        site.cookie.show.on( 'click', function ( e ) {
+        site.ui.header.on( 'click', function ( e ) {
 
-            console.log( document.cookie );
+            // console.log( document.cookie );
 
         });
 
         // menus
         menusFX.init();
 
-        // track focus
+        // accessibility testing
         // trackFocus();
 
         // datatables

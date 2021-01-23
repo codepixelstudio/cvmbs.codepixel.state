@@ -44,7 +44,12 @@
 
         transform: translate3d( 28rem, 0, 0 );
 
-        transition: none;
+        transition:
+
+            height 480ms $outex 0ms,
+               top 480ms $outex 0ms
+
+        ;
 
         // mobile
         @include breakpoint ( small only ) {
@@ -63,6 +68,31 @@
         &.is-open {
 
             visibility: visible;
+
+        }
+
+        // active alert
+        [data-alert-status='has_alert'] & {
+
+            top: 10rem;
+
+            height: calc( 100vh - 10rem );
+
+            transition:
+
+                height 480ms $outex 0ms,
+                   top 480ms $outex 0ms
+
+            ;
+
+            // mobile
+            @include breakpoint ( small only ) {
+
+                top: 8rem;
+
+                height: calc( 100vh - 8rem );
+
+            }
 
         }
 

@@ -14,10 +14,16 @@
     // test for top-level network site
     $network_site_ID = get_current_blog_id();
 
+    // homepage alert
+    $homepage_alert   = get_field( 'homepage_alert' );
+
+    // option
+    $alert_option = $homepage_alert[ 'alert_option' ];
+
 ?>
 
 <!-- header -->
-<header id="site-header" class="site-header <?php echo $site_type; ?>" role="banner" aria-owns="content">
+<header id="site-header" class="site-header <?php echo $site_type; ?>" role="banner" aria-owns="content" <?php if ( $alert_option ) { echo 'data-alert-status="has_alert"'; } ?>>
 
     <!-- .site-branding -->
     <div class="site-branding">

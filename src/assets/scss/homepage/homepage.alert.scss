@@ -1,0 +1,290 @@
+// stylesheet :: homepage alert styles
+
+    // settings
+    $alert : 1rem;
+
+    // styles
+    #homepage_alert {
+
+        position: fixed;
+
+        top: 0;
+        right: 0;
+        left: 0;
+
+        z-index: 200;
+
+        @include flex-h-j-v-c( false );
+
+        width: 100vw;
+        height: 5rem;
+        padding: 0 6rem 0 1.5rem;
+
+        // visibility: hidden;
+
+        @include color( white );
+
+        @include fill( $midnite, 0.165 );
+
+        opacity: 0.000;
+
+        @include shadowbox( 1rem, 3.5rem, black, 0.585 );
+
+        transform: translate3d( 0, -5rem, 0 );
+
+        transition: all 480ms $outex 0ms;
+
+        // mobile
+        @include breakpoint ( small only ) {
+
+            height: 4rem;
+            padding: 1rem 5rem 1rem 1rem;
+
+            transform: translate3d( 0, -4rem, 0 );
+
+        }
+
+        // activated
+        &.activated {
+
+            visibility: visible;
+
+            opacity: 1.000;
+
+            transform: translate3d( 0, 0, 0 );
+
+            transition: all 480ms $outex 1200ms;
+
+        }
+
+        // info
+        &.info {
+
+            @include fill( $blue, 0.000 );
+
+        }
+
+        // alert
+        &.alert {
+
+            @include fill( $roarange, 0.000 );
+
+        }
+
+        // warning
+        &.warning {
+
+            @include fill( $cvellow, 0.000 );
+
+        }
+
+        // good
+        &.good {
+
+            @include fill( $px-green, 0.000 );
+
+        }
+
+        // contrast
+        .ui_contrast {
+
+            position: absolute;
+
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            z-index: 10;
+
+            @include fill( $dark-nite, 0.765 );
+
+            @include gradient(
+
+                90deg,
+                $dark-nite, 0.785, 0%,
+                transparent, 1.000, 100%
+
+            );
+
+        }
+
+        // content
+        .alert_text {
+
+            position: relative;
+
+            z-index: 100;
+
+        }
+
+        // dismiss
+        #dismiss_alert {
+
+            position: absolute;
+
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            z-index: 100;
+
+            width: 5rem;
+            height: 5rem;
+            padding: 2rem 2rem 2rem 2rem;
+
+            @include fill( $dark-nite, 0.865 );
+
+            transition: $all220;
+
+            // mobile
+            @include breakpoint ( small only ) {
+
+                width: 4rem;
+                height: 4rem;
+                padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+
+            }
+
+            // hover state
+            &:hover {
+
+                cursor: pointer;
+
+            }
+
+            // dismiss button
+            &:after {
+
+                @include codicon( 1rem, 1rem, 0, 1rem, white, '\ED6D' );
+
+                // position: absolute;
+
+                top: 0;
+                right: 0;
+
+                z-index: 200;
+
+            }
+
+            // label
+            span {
+
+                display: block;
+
+                width: 1px;
+                height: 1px;
+
+                overflow: hidden;
+
+                text-indent: -9999rem;
+
+            }
+
+        }
+
+        // common
+        span {
+
+            // common
+            &.alert_title,
+            &.alert_message {
+
+                // mobile
+                @include breakpoint ( small only ) {
+
+                    line-height: 0.5rem;
+
+                }
+
+            }
+
+            // title
+            &.alert_title {
+
+                position: relative;
+
+                display: inline-block;
+
+                height: 1rem;
+                padding: 0.25rem 0 0 1.5rem;
+
+                @include font( $industry, 0.75rem, 700 );
+
+                @include text( $up );
+
+                @include typo( 0.625rem, 0.025em );
+
+                // mobile
+                @include breakpoint ( medium down ) {
+
+                    padding: 0.25rem 0 0 0;
+
+                }
+
+                // mobile
+                @include breakpoint ( small only ) {
+
+                    display: inline;
+
+                    height: auto;
+                    padding: 0;
+
+                    @include font( $industry, 0.625rem, 700 );
+
+                }
+
+                // before
+                &:before {
+
+                    @include codicon( 1rem, 1rem, 0, 1rem, transparentize( white, 0.365 ), '\ED63' );
+
+                    position: absolute;
+
+                    top: 0;
+                    left: 0;
+
+                    // mobile
+                    @include breakpoint ( medium down ) {
+
+                        @include hide;
+
+                    }
+
+                }
+
+            }
+
+            // text
+            &.alert_message {
+
+                @include font( $industry, 0.75rem, 500 );
+
+                // mobile
+                @include breakpoint ( small only ) {
+
+                    @include font( $industry, 0.625rem, 500 );
+
+                    @include typo( 0.5rem, 0.015em );
+
+                }
+
+            }
+
+        }
+
+        // link
+        .alert_link {
+
+            @include color( white );
+
+            // mobile
+            @include breakpoint ( small only ) {
+
+                @include font( $industry, 0.625rem, 500 );
+
+            }
+
+        }
+
+    }

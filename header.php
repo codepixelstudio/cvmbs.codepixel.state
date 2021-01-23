@@ -20,13 +20,37 @@
 
 		<?php
 
+			// site type layout
 			$site_type = get_field( 'site_type', 'options' );
+
+			// homepage alert
+		    $homepage_alert   = get_field( 'homepage_alert' );
+
+		    // option
+		    $alert_option = $homepage_alert[ 'alert_option' ];
+
+			// alert set status
+			if ( $alert_option ) {
+
+				$alert_status = 'has_alert';
+
+			} else {
+
+				$alert_status = 'inactive';
+
+			}
 
 		?>
 
-		<body <?php body_class(); ?> data-site-type="<?php echo $site_type; ?>">
+		<body <?php body_class(); ?> data-site-type="<?php echo $site_type; ?>" data-alert-status="<?php echo $alert_status; ?>">
 
 			<a href="#content" class="skip-link screen-reader-text"><?php esc_html_e( 'Skip to content', 'cvmbsPress' ); ?></a>
+
+			<?php if ( $alert_option ) : ?>
+
+			<?php get_template_part( 'elements/homepage/alert/homepage.alert' ); ?>
+
+			<?php endif; ?>
 
 			<?php get_template_part( 'elements/layout/layout.header' ); ?>
 
