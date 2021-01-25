@@ -184,6 +184,9 @@
 
             } else {
 
+                // reset body
+                $('body').addClass( 'has_alert' );
+
                 // setup alert
                 homepage_alert.addClass( 'activated' );
 
@@ -200,7 +203,10 @@
             // set cookie evidence
             $('body').attr( 'data-alert-status', 'dismissed' );
 
-            // setup alert
+            // reset body
+            $('body').removeClass( 'has_alert' );
+
+            // reset alert
             homepage_alert.removeClass( 'activated' );
 
             // reset header
