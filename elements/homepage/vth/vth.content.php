@@ -25,6 +25,11 @@
         case $count >= 4 :
 
             $layout = 'multiples';
+            // break;
+
+        case $count == 8 :
+
+            $layout = 'eights';
             break;
 
         default :
