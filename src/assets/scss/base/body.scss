@@ -71,6 +71,13 @@
 
             transition: all 480ms $outex 1200ms;
 
+            // mobile
+            @include breakpoint ( small only ) {
+
+                padding: 4rem 0 0 0;
+
+            }
+
         }
 
     }
