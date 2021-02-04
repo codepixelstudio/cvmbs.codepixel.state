@@ -365,11 +365,11 @@
 
         // rearrange DOM for main directory view(s)
         $('#directory-records_length').appendTo( controlfields );
-        $('#directory-records_filter').appendTo( controlfields );
+        $('#directory-records_filter').prependTo( controlfields );
         $('#directory-records_info').appendTo( directoryinfo );
         $('#directory-records_paginate').appendTo( controlpages );
 
-        // rearrange DOM for main directory view(s)
+        // rearrange DOM for menu directory view(s)
         $('#menu-directory-records_filter').appendTo( menucontrolfields );
         $('#menu-directory-records_length').appendTo( menucontrolfields );
         $('#menu-directory-records_paginate').appendTo( menucontrolpages );
