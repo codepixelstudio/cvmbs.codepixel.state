@@ -62,7 +62,23 @@
 
         } else { $stickiness = 'default'; } ?>
 
-        <?php echo '<a class="launchpad ' . $stickiness . '" href="' . $launchpad[ 'link' ] . '" style="background-image:url(' . $launchpad[ 'image' ] . ')"><span class="title">' . $launchpad[ 'title' ] . '</span></a>'; ?>
+        <?php
+
+            echo '
+
+                <a class="launchpad ' . $stickiness . ' lazyload" href="' . $launchpad[ 'link' ] . '" style="background-image:url(' . get_stylesheet_directory_uri() . '/dist/assets/img/utilities/pixel.gif);" data-src="' . $launchpad[ 'image' ] . '">
+
+                    <span class="title">
+
+                        ' . $launchpad[ 'title' ] . '
+
+                    </span>
+
+                </a>
+
+            ';
+
+        ?>
 
     <?php endforeach; ?>
 

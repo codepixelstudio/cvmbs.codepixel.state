@@ -56,7 +56,7 @@ $sourceURL   = 'https://cvmbs.source.colostate.edu/tag/' . $tag;
 
         <a href="<?php echo $permalink; ?>" class="article card">
 
-            <div class="header" style="background-image:url( <?php echo $thumbnail; ?> )"></div>
+            <div class="header lazyload" style="background-image:url(<?php echo get_template_directory_uri(); ?>/dist/assets/img/utilities/pixel.gif);" data-src="<?php echo $thumbnail; ?>"></div>
 
             <div class="content">
 
