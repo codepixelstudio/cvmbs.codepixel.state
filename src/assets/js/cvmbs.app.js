@@ -244,7 +244,8 @@
         // lazyload
         var lazyLoadFX = new LazyLoad({
 
-            elements_selector : '.lazyload'
+            elements_selector : '.lazyload',
+            threshold         : 64
 
         });
 
