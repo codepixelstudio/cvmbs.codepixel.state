@@ -1515,35 +1515,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5c91410400a9c": {
-                    "key": "layout_5c91410400a9c",
-                    "name": "video",
-                    "label": "Video",
-                    "display": "row",
-                    "sub_fields": [
-                        {
-                            "key": "field_5c993ef577d92",
-                            "label": "YouTube Video ID",
-                            "name": "video_id",
-                            "type": "text",
-                            "instructions": "e.g., 2DegmW2U73M",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_5d95d4928739b": {
                     "key": "layout_5d95d4928739b",
                     "name": "single_testimonial",
@@ -1792,6 +1763,54 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5c91410400a9c": {
+                    "key": "layout_5c91410400a9c",
+                    "name": "video",
+                    "label": "Video",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5c993ef577d92",
+                            "label": "YouTube Video ID",
+                            "name": "video_id",
+                            "type": "text",
+                            "instructions": "e.g., 2DegmW2U73M",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60368bed1685e",
+                            "label": "Text",
+                            "name": "video_text",
+                            "type": "textarea",
+                            "instructions": "Optionally add text for context and\/or accessibility purposes, etc.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 4,
+                            "new_lines": "wpautop"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "New Block",
@@ -1816,7 +1835,7 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1571943977
+    "modified": 1614187818
 }

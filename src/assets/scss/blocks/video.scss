@@ -29,4 +29,30 @@
 
 	}
 
+	// text
+	&__text {
+
+		margin: 3rem 0 0 0;
+
+		// mobile
+		@include breakpoint ( small only ) {
+
+			margin-top: 2rem;
+
+		}
+
+		// paragraphs
+		p {
+
+			// last child
+			&:last-child {
+
+				margin: 0 0 0 0;
+
+			}
+
+		}
+
+	}
+
 }
