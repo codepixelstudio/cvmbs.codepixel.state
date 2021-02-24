@@ -30,6 +30,18 @@
 
 			</div><!-- .layered-video__inner -->
 
+			<?php if ( get_sub_field( 'video_text' ) ) : ?>
+
+			<!-- text -->
+			<div class="layered-video__text">
+
+				<?php echo get_sub_field( 'video_text' ); ?>
+
+			</div>
+			<!-- END text -->
+
+			<?php endif; ?>
+
 		</div><!-- .layered-video__wrap -->
 
 	</div><!-- .template-block__wrap -->
