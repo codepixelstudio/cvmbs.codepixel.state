@@ -220,6 +220,7 @@
                     'directoryGroup'    => $directoryGroupName,
                     'primaryGroupID'    => $primaryGroupId,
                     'multipleGroups'    => $multipleGroups,
+                    'vthMember'         => '',
                     'groups'            => $memberGroups,
                     'department'        => $department,
                     'phone'             => $phone,
