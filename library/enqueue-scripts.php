@@ -53,7 +53,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', false );
 
 		// Deregister the jquery-migrate version bundled with WordPress.
-		wp_deregister_script( 'jquery-migrate' );
+		// wp_deregister_script( 'jquery-migrate' );
 
 		// Enqueue Isotope for Places archive page
 		if ( is_post_type_archive('place') ) {
