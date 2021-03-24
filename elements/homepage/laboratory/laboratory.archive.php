@@ -50,7 +50,15 @@
 
                 );
 
-                array_push( $labs_list, $lab_site );
+                // get site attributes
+                $lab_status = $lab->deleted;
+
+                // test for deactivated sites -> skip
+                if ( !$lab_status ) {
+
+                    array_push( $labs_list, $lab_site );
+
+                }
 
             }
 
