@@ -45,7 +45,8 @@
                 $lab_site = array(
 
                     'name' => $lab->blogname,
-                    'link' => $lab->path
+                    'link' => $lab->path,
+                    'ID'   => $lab->blog_id
 
                 );
 
@@ -58,8 +59,16 @@
 
             foreach ( $labs_list as $site ) {
 
+                $lab_ID   = $site[ 'ID' ];
                 $lab_url  = $site[ 'link' ];
                 $lab_name = $site[ 'name' ];
+
+                // test for template site -> skip
+                if ( $lab_ID == 2 ) {
+
+                    continue;
+
+                }
 
                 $labs_index .= '
 
