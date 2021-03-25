@@ -36,6 +36,7 @@ $btn_bg: #236670;
 			width: calc(50% - 1rem);
 			max-width: none;
 			// margin: 1rem 1rem 1rem 1rem;
+			margin: 0 0 2rem 0;
 
 		}
 
@@ -44,14 +45,14 @@ $btn_bg: #236670;
 			.grid--3-columns & {
 
 				width: calc( 33.3333333% - 2rem );
-				// margin: 1rem 1rem 1rem 1rem;
+				margin: 0rem 0rem 3rem 0rem;
 
 			}
 
 			.grid--2-columns & {
 
 				width: calc((100% / 2) - (2rem * 2 / 2)  - .1px); // remove .1px to fix IE not calculating percentages the same as real browsers
-				margin: 3rem 0rem 0rem 0rem;
+				margin: 0rem 0rem 3rem 0rem;
 
 				// last childs
 				&:nth-last-child( 2 ),
