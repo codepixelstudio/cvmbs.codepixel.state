@@ -127,7 +127,7 @@
 
             <button id="directory-menu-button" class="open-modal-button" data-open="directory-menu">
 
-                directory filters
+                <span>directory&nbsp;</span>filters
 
             </button>
 
@@ -165,26 +165,26 @@
                 <tr>
 
                     <!-- <th width="180"> -->
-                    <th>
+                    <th data-priority="1">
 
                         Name
 
                     </th>
 
-                    <th>
+                    <th data-priority="10000">
 
                         E-mail Address
 
                     </th>
 
-                    <th width="180">
-                    <!-- <th> -->
+                    <th width="180" align="right" data-priority="1">
+                    <!-- <th data-priority="2"> -->
 
                         Phone
 
                     </th>
 
-                    <th>
+                    <th data-priority="10000">
 
                         Department
 

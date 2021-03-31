@@ -40,7 +40,10 @@
             // mobile
             @include breakpoint ( small only ) {
 
-                height: 3rem;
+                @include flex-h-j-v-t( false );
+
+                min-height: 3rem;
+                height: auto;
 
             }
 
@@ -48,8 +51,6 @@
             h1 {
 
                 @include flex-v-c-h-s( false );
-
-                align-self: flex-start;
 
                 margin: 0 0 0 0;
 
@@ -60,7 +61,11 @@
                 // mobile
                 @include breakpoint ( small only ) {
 
-                    font-size: 2rem;
+                    align-self: flex-start;
+
+                    font-size: 1.75rem;
+
+                    line-height: 2rem;
 
                 }
 
@@ -95,15 +100,27 @@
 
                 @include font( $industry, 0.6875rem, 700 );
 
-                // @include text( $up );
-
-                // @include color( $g135, 0.000 );
                 @include color( white, 0.000 );
 
-                // @include fill( $g135, 0.865 );
                 @include fill( $roarange, 0.000 );
 
                 transition: all 220ms linear 0ms;
+
+                // mobile
+                @include breakpoint ( small only ) {
+
+                    padding: 0.0625rem 2rem 0 0.75rem;
+
+                    @include font( $industry, 0.625rem, 700 );
+
+                    // line break
+                    span {
+
+                        @include hide;
+
+                    }
+
+                }
 
                 // hover state
                 &:hover {
@@ -129,7 +146,7 @@
 
                     top: 0;
                     right: 0;
-                    bottom: 0;
+                    // bottom: 0;
 
                     transition: all 220ms linear 0ms;
 
@@ -157,6 +174,16 @@
 
                     // @include codicon( 2rem, 2rem, 0.5rem 0.75rem 0.5rem 0.25rem, 1rem, $g135, '\EAFF' );
                     @include codicon( 2rem, 2rem, 0.5rem 0.75rem 0.5rem 0.25rem, 1rem, white, '\EAFF' );
+
+                    // mobile
+                    @include breakpoint ( small only ) {
+
+                        top: 0.5rem;
+                        right: 0.5rem;
+
+                        @include codicon( 1rem, 1rem, 0, 0.75rem, white, '\EAFF' );
+
+                    }
 
                 }
 

@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "datatables.net": "^1.10.19",
+    "datatables.net-responsive-dt": "^2.2.7",
     "foundation-sites": "6.4.3",
     "jquery": "~3.0.0",
     "lazyload": "^2.0.0-rc.2",

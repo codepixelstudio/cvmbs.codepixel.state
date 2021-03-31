@@ -26,6 +26,7 @@
 
     // datatables
     import DataTable from 'datatables.net';
+    require( 'datatables.net-responsive-dt' );
 
     // slick.js
     require( 'slick-carousel' );
