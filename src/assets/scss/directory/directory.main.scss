@@ -1120,6 +1120,14 @@
             // min-height: 36rem;
             padding: 10rem 5rem 5rem 5rem;
 
+            // mobile
+            @include breakpoint ( small only ) {
+
+                padding: 5rem 2rem 2rem 2rem;
+                padding: 2rem 0 0 0;
+
+            }
+
             // profile
             .listing-profile {
 
