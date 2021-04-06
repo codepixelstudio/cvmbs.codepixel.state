@@ -45,6 +45,41 @@
         // class hook
         .group-bios {
 
+            &__grid {
+
+        		@include bpoint(desktop) {
+
+                	display: flex;
+        			flex-wrap: wrap;
+        			align-items: flex-start;
+        			justify-content: space-between;
+
+                }
+
+        		&-item {
+        			margin-top: 1rem;
+
+        			@include bpoint(40em) {
+        				display: -ms-grid;
+        				display: grid;
+        				grid-gap: 1rem;
+        				-ms-grid-rows: auto;
+        				grid-template-rows: auto;
+        				-ms-grid-columns: auto 1em 1fr;
+        				grid-template-columns: auto 1fr;
+        			}
+
+        			@include bpoint(desktop) {
+        				width: calc(50% - 1em);
+        				margin-top: 2em;
+
+        				&:nth-child(-n+2) {
+        					margin-top: 0;
+        				}
+        			}
+        		}
+        	}
+
             // item
             &__grid-item {
 
@@ -53,12 +88,12 @@
                 // mobile
                 @include breakpoint ( small only ) {
 
-                    margin: 0 0 2rem 0;
+                    // margin: 0 0 2rem 0;
 
                     // last child
                     &:last-child {
 
-                        margin: 0 0 0 0;
+                        // margin: 0 0 0 0;
 
                     }
 
@@ -106,6 +141,8 @@
 
             // margin: 0 0 0.5rem 0;
 
+            @include font( $vitesse, 1.125rem, 400 );
+
             text-decoration: none;
 
             @include color( white, 0.000 );
@@ -117,10 +154,14 @@
 
             margin: 0 0 1rem 0;
 
+            @include font( inherit, 0.875rem, 400 );
+
         }
 
         // text
         p {
+
+            @include font( $vitesse, 0.9375rem, 400 );
 
             @include color( white, 0.375 );
 
@@ -132,6 +173,7 @@
             text-decoration: none;
 
             @include color( white, 0.375 );
+            @include color( $gold );
 
         }
 
