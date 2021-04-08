@@ -6,4 +6,33 @@
 	.bg--none + .bg--none {
 		padding-top: calc(8vw - 5em);
 	}
+
+	// nested images
+    .alignleft,
+    .alignright {
+
+        clear: both;
+
+        max-width: 50%;
+
+    }
+
+    // left
+    .alignleft {
+
+        float: left;
+
+        margin: 0 1.75rem 0.75rem 0;
+
+    }
+
+    // right
+    .alignright {
+
+        float: right;
+
+        margin: 0 0 0.75rem 1.75rem;
+
+    }
+
 }
