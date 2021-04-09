@@ -1782,7 +1782,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "url",
+                            "return_format": "id",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
@@ -4581,42 +4581,6 @@
                     ]
                 },
                 {
-                    "key": "field_5f74a6c668d17",
-                    "label": "Quick Links",
-                    "name": "links",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "row",
-                    "button_label": "Add Quick Link",
-                    "sub_fields": [
-                        {
-                            "key": "field_5f74a6d168d18",
-                            "label": "Quick Link",
-                            "name": "link",
-                            "type": "link",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        }
-                    ]
-                },
-                {
                     "key": "field_5de984c6682aa",
                     "label": "Info Bar",
                     "name": "info_bar",
@@ -4843,5 +4807,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1611671671
+    "modified": 1617975228
 }

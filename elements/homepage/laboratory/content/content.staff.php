@@ -32,14 +32,14 @@
                     <!-- directory link -->
                     <a href="<?php echo $staff_link; ?>">
 
-                        <img src="<?php echo $staff_photo; ?>" />
+                        <?php echo wp_get_attachment_image( $staff[ 'photo' ], 'thumbnail' ); ?>
 
                     </a>
                     <!-- END directory link -->
 
                     <?php else : ?>
 
-                    <img src="<?php echo $staff_photo; ?>" />
+                    <?php echo wp_get_attachment_image( $staff[ 'photo' ], 'thumbnail' ); ?>
 
                     <?php endif; ?>
 
