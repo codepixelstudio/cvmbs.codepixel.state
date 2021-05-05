@@ -1209,7 +1209,9 @@
                     // title
                     .title {
 
+                        margin: 0 0 1rem 0;
 
+                        @include font( $industry, 0.75rem, 700 );
 
                     }
 
@@ -1313,11 +1315,11 @@
 
                         margin: 0 0 0.25rem 0;
 
-                        @include font( $industry, 0.875rem, 700 );
+                        // @include font( $industry, 0.875rem, 700 );
 
                         @include typo( 1rem, 0em );
 
-                        @include color( $app05, 0.165 );
+                        // @include color( $app05, 0.165 );
 
                     }
 
@@ -1335,7 +1337,7 @@
             z-index: 200;
 
             color: white;
-            // color: $app05;
+            color: $app05;
 
             // hide
             &.hide {
