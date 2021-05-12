@@ -8,7 +8,7 @@
     $filelocation = $_SERVER[ 'DOCUMENT_ROOT' ] . '/wp-content/themes/cvmbsPress/data/';
 
     // set WSDL service URL
-    $member_list = 'https://webservicesdev.cvmbs.colostate.edu/pmiservice/api/directory/GetPublicDirectoryMemberList';
+    $member_list = 'https://webservices.cvmbs.colostate.edu/pmiservice/api/directory/GetPublicDirectoryMemberList';
 
     try {
 

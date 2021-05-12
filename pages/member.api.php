@@ -12,10 +12,10 @@
     $query = $_GET[ 'id' ];
 
     // construct member detail query
-    $member_api = 'https://webservicesdev.cvmbs.colostate.edu/pmiservice/api/directory/GetPublicDirectoryMemberDetail?memberId=' . $query;
+    $member_api = 'https://webservices.cvmbs.colostate.edu/pmiservice/api/directory/GetPublicDirectoryMemberDetail?memberId=' . $query;
 
     // construct member photo query
-    $member_photo  = 'https://webservicesdev.cvmbs.colostate.edu/pmiservice/api/directory/GetPublicDirectoryMemberPhoto?memberId=' . $query;
+    $member_photo  = 'https://webservices.cvmbs.colostate.edu/pmiservice/api/directory/GetPublicDirectoryMemberPhoto?memberId=' . $query;
 
     // debug output
     $member_detail = json_decode( file_get_contents( $member_api ) );
