@@ -200,7 +200,7 @@
                     <!-- email -->
                     <a href="mailto:<?php echo $member_detail->emailAddress; ?>" class="email">
 
-                        <?php echo $member_detail->emailAddress; ?>
+                        <?php echo strtolower( $member_detail->emailAddress ); ?>
 
                     </a>
                     <!-- END email -->
@@ -239,7 +239,7 @@
                 <!-- listing group -->
                 <div class="listing-group bio">
 
-                    <h3 class="listing-heading">About <?php echo $member_detail->firstName; ?></h3>
+                    <h3 class="listing-heading">About <?php echo $member_detail->preferredFirstName; ?></h3>
 
                     <!-- listing -->
                     <div class="listing">
