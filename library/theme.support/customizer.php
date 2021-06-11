@@ -31,4 +31,11 @@
     // action reference
     add_action( 'admin_menu', 'remove_sub_menus' );
 
+    // if they backdoor via menus, scare them off
+    add_action( 'customize_preview_init', function() {
+
+        die( "The customizer is disabled. If you can see this message, you have wandered too far into WordPress and you need to return to the default admin area immediately. Unauthorized edits to any of the options on the left is cause for revocation of your permissions." );
+
+    }, 1 );
+
 ?>
