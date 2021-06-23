@@ -127,9 +127,13 @@
 
                 $phone = $member_detail->publicContactList[0]->phoneNumber;
 
+                $newPhone = preg_replace( '/\D+/', '', $phone );
+
             } else {
 
                 $phone = $member_detail->publicContactList->phoneNumber;
+
+                $newPhone = preg_replace( '/\D+/', '', $phone );
 
             }
 
@@ -205,13 +209,17 @@
                     </a>
                     <!-- END email -->
 
+                    <?php if ( $phone ) : ?>
+
                     <!-- phone -->
                     <span class="phone">
 
-                        <?php echo $phone; ?>
+                        <?php echo '(' . substr( $newPhone, 0, 3 ) . ') ' . substr( $newPhone, 3, 3 ) . '-' . substr( $newPhone, 6 ); ?>
 
                     </span>
                     <!-- END phone -->
+
+                    <?php endif; ?>
 
                     <?php $website = $member_detail->website; ?>
 
@@ -364,7 +372,7 @@
         <!-- END listing -->
 
         <!-- output -->
-        <div class="developer">
+        <div class="developer hide">
 
             <pre class="developer">
 

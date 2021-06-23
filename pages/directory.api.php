@@ -163,6 +163,9 @@
                     // college data
                     if ( $site_type == 'college' ) {
 
+                        // empty variable
+                        $results = '';
+
                         foreach ( $members as $member ) {
 
                             $query      = $member->memberID;
@@ -171,10 +174,21 @@
                             $firstName  = $member->otherName;
                             $tableName  = $lastName . ', ' . $firstName;
                             $eMail      = strtolower( $member->email );
-                            $phone      = $member->phone;
+                            $phone   = $member->phone;
+                            $rawPhone   = preg_replace( '/\D+/', '', $member->phone );
                             $department = $member->directoryGroup;
 
-                            $results .= '<tr class="record"><td class="link-column"><span class="mobile-toggle"></span><a class="member-link" href="//vetmedbiosci.colostate.edu/directory-api/member/?id=' . $query . '">' . $tableName . '</a></td><td class="link-column"><a class="email-link" href="mailto:' . $eMail . '">' . $eMail . '</a></td><td>' . $phone . '</td><td>' . $department . '</td></tr>';
+                            if ( $phone ) {
+
+                                $newPhone = '(' . substr( $rawPhone, 0, 3 ) . ') ' . substr( $rawPhone, 3, 3 ) . '-' . substr( $rawPhone, 6 );
+
+                            } else {
+
+                                $newPhone = '';
+
+                            }
+
+                            $results .= '<tr class="record"><td class="link-column"><span class="mobile-toggle"></span><a class="member-link" href="//vetmedbiosci.colostate.edu/directory-api/member/?id=' . $query . '">' . $tableName . '</a></td><td class="link-column"><a class="email-link" href="mailto:' . $eMail . '">' . $eMail . '</a></td><td>' . $newPhone . '</td><td>' . $department . '</td></tr>';
 
                         }
 
@@ -184,6 +198,9 @@
 
                     // department data
                     if ( $site_type == 'department' ) {
+
+                        // empty variable
+                        $results = '';
 
                         foreach ( $members as $member ) {
 
@@ -196,9 +213,20 @@
                                 $tableName  = $lastName . ', ' . $firstName;
                                 $eMail      = strtolower( $member->email );
                                 $phone      = $member->phone;
+                                $rawPhone   = preg_replace( '/\D+/', '', $member->phone );
                                 $department = $member->directoryGroup;
 
-                                $results .= '<tr class="record"><td class="link-column"><span class="mobile-toggle"></span><a class="member-link" href="//vetmedbiosci.colostate.edu/directory-api/member/?id=' . $query . '">' . $tableName . '</a></td><td class="link-column"><a class="email-link" href="mailto:' . $eMail . '">' . $eMail . '</a></td><td>' . $phone . '</td><td>' . $department . '</td></tr>';
+                                if ( $phone ) {
+
+                                    $newPhone = '(' . substr( $rawPhone, 0, 3 ) . ') ' . substr( $rawPhone, 3, 3 ) . '-' . substr( $rawPhone, 6 );
+
+                                } else {
+
+                                    $newPhone = '';
+
+                                }
+
+                                $results .= '<tr class="record"><td class="link-column"><span class="mobile-toggle"></span><a class="member-link" href="//vetmedbiosci.colostate.edu/directory-api/member/?id=' . $query . '">' . $tableName . '</a></td><td class="link-column"><a class="email-link" href="mailto:' . $eMail . '">' . $eMail . '</a></td><td>' . $newPhone . '</td><td>' . $department . '</td></tr>';
 
                             }
 
