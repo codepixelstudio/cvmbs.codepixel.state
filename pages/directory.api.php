@@ -188,7 +188,7 @@
 
                             }
 
-                            $results .= '<tr class="record"><td class="link-column"><span class="mobile-toggle"></span><a class="member-link" href="//vetmedbiosci.colostate.edu/directory-api/member/?id=' . $query . '">' . $tableName . '</a></td><td class="link-column"><a class="email-link" href="mailto:' . $eMail . '">' . $eMail . '</a></td><td>' . $newPhone . '</td><td>' . $department . '</td></tr>';
+                            $results .= '<tr class="record"><td class="link-column"><span class="mobile-toggle"></span><a class="member-link" href="//vetmedbiosci.colostate.edu/directory/member/?id=' . $query . '">' . $tableName . '</a></td><td class="link-column"><a class="email-link" href="mailto:' . $eMail . '">' . $eMail . '</a></td><td>' . $newPhone . '</td><td>' . $department . '</td></tr>';
 
                         }
 
@@ -226,7 +226,7 @@
 
                                 }
 
-                                $results .= '<tr class="record"><td class="link-column"><span class="mobile-toggle"></span><a class="member-link" href="//vetmedbiosci.colostate.edu/directory-api/member/?id=' . $query . '">' . $tableName . '</a></td><td class="link-column"><a class="email-link" href="mailto:' . $eMail . '">' . $eMail . '</a></td><td>' . $newPhone . '</td><td>' . $department . '</td></tr>';
+                                $results .= '<tr class="record"><td class="link-column"><span class="mobile-toggle"></span><a class="member-link" href="' . site_url() . '/directory/member/?id=' . $query . '">' . $tableName . '</a></td><td class="link-column"><a class="email-link" href="mailto:' . $eMail . '">' . $eMail . '</a></td><td>' . $newPhone . '</td><td>' . $department . '</td></tr>';
 
                             }
 
@@ -271,19 +271,19 @@
             </header>
             <!-- END header -->
 
-            <a class="filter-link main" href="<?php echo site_url(); ?>/directory-api">all members</a>
+            <a class="filter-link main" href="<?php echo site_url(); ?>/directory">all members</a>
 
-            <a class="filter-link" href="<?php echo site_url(); ?>/directory-api/group/faculty">faculty</a>
+            <a class="filter-link" href="<?php echo site_url(); ?>/directory/group/faculty">faculty</a>
 
-            <a class="filter-link" href="<?php echo site_url(); ?>/directory-api/group/staff">staff</a>
+            <a class="filter-link" href="<?php echo site_url(); ?>/directory/group/staff">staff</a>
 
-            <a class="filter-link" href="<?php echo site_url(); ?>/directory-api/group/graduate-students">graduate students</a>
+            <a class="filter-link" href="<?php echo site_url(); ?>/directory/group/graduate-students">graduate students</a>
 
-            <a class="filter-link" href="<?php echo site_url(); ?>/directory-api/group/residents-interns">residents/interns</a>
+            <a class="filter-link" href="<?php echo site_url(); ?>/directory/group/residents-interns">residents/interns</a>
 
-            <a class="filter-link" href="<?php echo site_url(); ?>/directory-api/group/post-doctoral">post doctoral</a>
+            <a class="filter-link" href="<?php echo site_url(); ?>/directory/group/post-doctoral">post doctoral</a>
 
-            <a class="filter-link" href="<?php echo site_url(); ?>/directory-api/group/associates">associates</a>
+            <a class="filter-link" href="<?php echo site_url(); ?>/directory/group/associates">associates</a>
 
         </div>
         <!-- END directory filter menu -->

@@ -371,18 +371,6 @@
         </div>
         <!-- END listing -->
 
-        <!-- output -->
-        <div class="developer hide">
-
-            <pre class="developer">
-
-                <?php print_r( $member_detail )?>
-
-            </pre>
-
-        </div>
-        <!-- END output -->
-
     </div>
     <!-- END directory -->
 

@@ -8,15 +8,28 @@
     // $filelocation = $_SERVER[ 'DOCUMENT_ROOT' ] . '/wp-content/themes/cvmbsPress/data/';
 
     // set WSDL service URL
-    $member_list = 'https://webservices.cvmbs.colostate.edu/pmiservice/api/directory/GetPublicDirectoryMemberList';
+    $serviceURL = 'http://www.cvmbs.colostate.edu/directoryservice/DirectoryService.svc?wsdl';
 
     try {
 
         // instantiate DirectoryService
-        $members = json_decode( file_get_contents( $member_list ) );
+        $service = new SoapClient( $serviceURL );
+
+        // output list of functions
+        $response = $service->__getFunctions();
+
+        // output magic
+        $directory = $service->GetMembersBySearchName(
+
+            array( 'searchName' => ' ' )
+
+        );
+
+        // get returned data object
+        $members = $directory->GetMembersBySearchNameResult->MemberResponse;
 
         // create JSON store
-        $filestore = $filelocation . 'directory.api.data.json';
+        $filestore = $filelocation . 'directory.json';
         $tempfilestore = $filelocation . 'directory-temp.json';
 
         // code depends on this file existing
@@ -38,9 +51,27 @@
         // iterate over data
         foreach( $members as $member ) {
 
+            // use member ID to find departments
+            $queryId = $member->Id;
+
+            // get department groups
+            $groups = $service->GetGroupsByMemberId( array( 'memberId' => $queryId ) );
+
+            // get contact info
+            $contacts = $service->GetMemberContactsByMemberId( array( 'id' => $queryId ) );
+
+            // get photo
+            $photos = $service->GetMemberPhotoByMemberId(
+
+                array( 'id' => $queryId )
+
+            );
+
             // get returned data object(s)
-            $memberGroups   = $member->groupList;
-            $memberContacts = $member->publicContactList;
+            $memberAddress  = $address->GetMemberByIdResult;
+            $memberGroups   = $groups->GetGroupsByMemberIdResult->GroupResponse;
+            $memberContacts = $contacts->GetMemberContactsByMemberIdResult->MemberContactResponse;
+            $memberPhotos   = $photos->GetMemberPhotoByMemberIdResult->MemberPhotoResponse;
 
             // test for department group data type
             if ( is_array( $memberGroups ) ) {
@@ -49,12 +80,12 @@
 
                 foreach ( $memberGroups as $memberGroup ) {
 
-                    $departmentID = $memberGroup->isPrimary;
+                    $departmentID = $memberGroup->IsPrimaryGroup;
 
                     if ( $departmentID ) {
 
-                        $department     = $memberGroup->groupFriendlyName;
-                        $primaryGroupId = $memberGroup->groupId;
+                        $department     = $memberGroup->GroupFriendlyName;
+                        $primaryGroupId = $memberGroup->Id;
 
                     }
 
@@ -64,19 +95,19 @@
 
                 $multipleGroups = false;
 
-                $department     = $memberGroups->groupFriendlyName;
-                $primaryGroupId = $memberGroups->groupId;
+                $department     = $memberGroups->GroupFriendlyName;
+                $primaryGroupId = $memberGroups->Id;
 
             }
 
             // test for contact info data type
             if ( is_array( $memberContacts ) ) {
 
-                $phone = $memberContacts[0]->phoneNumber;
+                $phone = $memberContacts[0]->PhoneNumber;
 
             } else {
 
-                $phone = $memberContacts->phoneNumber;
+                $phone = $memberContacts->PhoneNumber;
 
             }
 
@@ -84,7 +115,6 @@
             switch ( $primaryGroupId ) {
 
                 case 203 :
-                case 204 :
                 case 210 :
 
                     $directoryGroupId   = 1001;
@@ -164,7 +194,12 @@
             }
 
             // setup variables
-            if ( strpos( $member->lastName, 'lhr' ) !== false || strpos( $member->lastName, 'aaaa' ) !== false ) {
+            $email = strtolower( $member->EmailAddress );
+            $name  = $member->FirstName . ' ' . $member->LastName;
+
+            // setup variables
+            // if ( strpos( $member->LastName, 'lhr' ) !== false || strpos( $member->LastName, 'Ebel' ) !== false ) {
+            if ( strpos( $member->LastName, 'lhr' ) !== false ) {
 
                 continue;
 
@@ -173,15 +208,15 @@
                 // push to members array
                 $storage[ 'members' ][] = array(
 
-                    'memberID'          => $member->memberId,
-                    'eName'             => $member->eName,
-                    'firstName'         => $member->firstName,
-                    'otherName'         => $member->preferredFirstName,
-                    'lastName'          => $member->lastName,
-                    'fullName'          => $member->firstName . ' ' . $member->lastName,
-                    'email'             => strtolower( $member->emailAddress ),
-                    'title'             => $member->employeeType,
-                    'memberType'        => $member->employeeCategory,
+                    'memberID'          => $member->Id,
+                    'eName'             => $member->EName,
+                    'firstName'         => $member->FirstName,
+                    'otherName'         => $member->OtherName,
+                    'lastName'          => $member->LastName,
+                    'fullName'          => $member->FirstName . ' ' . $member->LastName,
+                    'email'             => strtolower( $member->EmailAddress ),
+                    'title'             => $member->EmployeeTitle,
+                    'memberType'        => $member->EmployeeCategory,
                     'directoryGroupID'  => $directoryGroupId,
                     'directoryGroup'    => $directoryGroupName,
                     'primaryGroupID'    => $primaryGroupId,
@@ -193,7 +228,7 @@
                     'addressInfo'       => $member->OfficeRoomName . ' ' . $member->OfficeBldgName,
                     // 'addressInfo'       => $member->BusinessAddress1,
                     'address'           => $memberAddress->BusinessAddress1,
-                    'photo'             => 'https://www.cvmbs.colostate.edu/DirectorySearch/Search/MemberPhoto/' . $member->memberId
+                    'photo'             => 'https://www.cvmbs.colostate.edu/DirectorySearch/Search/MemberPhoto/' . $member->Id
 
                 );
 
@@ -204,10 +239,9 @@
         // filestore metadata
         $storage[ 'data' ] = array(
 
-            'dataset'   => 'COLLEGE DIRECTORY',
             'filestore' => $filestore,
             'modified'  => date( 'Y m d H:i:s', filemtime( $filestore ) ),
-            'records'   => count( $members )
+            'records'   => count( $members ),
 
         );
 
